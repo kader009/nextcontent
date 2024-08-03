@@ -1,9 +1,24 @@
-import React from 'react';
+const Home = async () => {
+  const datas = await fetch('https://jsonplaceholder.typicode.com/posts');
 
-const Home = () => {
+  const response = await datas.json();
+  // return response;
+  // console.log(response);
+  interface Posts {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+  }
+
   return (
     <div>
-      <h3>this is home page</h3>
+      <p>this is home page</p>
+      <br />
+      <br />
+      {response.map((res: Posts) => (
+        <div key={res.id}>{res.title}</div>
+      ))}
     </div>
   );
 };
