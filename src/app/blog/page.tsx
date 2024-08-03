@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 const Blogpage = () => {
   const blogs = [
@@ -33,6 +33,7 @@ const Blogpage = () => {
   }
 
   return (
+<Suspense fallback={<div>loading</div>}>
     <div className="flex justify-between m-6">
       {blogs.map((blog : BlogPost) => (
         <div key={blog.post_id} className="bg-slate-500 p-6 text-white rounded">
@@ -43,6 +44,7 @@ const Blogpage = () => {
         </div>
       ))}
     </div>
+    </Suspense>
   );
 };
 
