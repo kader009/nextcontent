@@ -137,7 +137,7 @@ const SingUp = () => {
 
             <div>
               <button
-                // onClick={() => signIn('google')}
+                // onClick={() => handleSing()}
                 className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
                 <span className="sr-only">Sign up with Google</span>

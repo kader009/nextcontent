@@ -1,7 +1,8 @@
 import { RequestInternal, Awaitable, User } from 'next-auth';
-import NextAuth from 'next-auth/next';
+import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from 'next-auth/providers/github';
 
 const handler = NextAuth({
   session: {
@@ -36,14 +37,19 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
-      authorization:{
-        params:{
-          prompt:'consent',
-          access_type:'offline',
-          response_type:'code',
-        }
-      }
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
     }),
+
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string
+    })
 
     /**
      *
