@@ -9,7 +9,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   const newComment = await request.json();
   comments.push(newComment);
-  
+
   return Response.json({
     comments,
   });
