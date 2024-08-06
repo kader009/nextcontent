@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Home = async () => {
   const datas = await fetch('https://jsonplaceholder.typicode.com/posts');
 
@@ -15,10 +17,14 @@ const Home = async () => {
     <div>
       <p>this is home page</p>
       <br />
-      <br />
-      {response.map((res: Posts) => (
-        <div key={res.id}>{res.title}</div>
-      ))}
+      <div className="grid grid-col-3 gap-2">
+        {response?.slice(0, 5).map((res: Posts) => (
+          <div key={res.id}>{res.title}
+          <br />
+          <button className="text-white bg-black p-2 rounded ml-2"><Link  href={`/${res.id}`}>details</Link></button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
