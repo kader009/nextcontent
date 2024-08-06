@@ -1,6 +1,7 @@
 import { RequestInternal, Awaitable, User } from 'next-auth';
 import NextAuth from 'next-auth/next';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 
 const handler = NextAuth({
   session: {
@@ -30,6 +31,18 @@ const handler = NextAuth({
       ): Awaitable<User | null> {
         throw new Error('Function not implemented.');
       },
+    }),
+
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID as string,
+      clientSecret: process.env.GOOGLE_SECRET as string,
+      authorization:{
+        params:{
+          prompt:'consent',
+          access_type:'offline',
+          response_type:'code',
+        }
+      }
     }),
 
     /**

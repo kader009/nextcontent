@@ -1,6 +1,26 @@
+'use client';
 import Link from 'next/link';
+import { FormEvent } from 'react';
 
 const SingUp = () => {
+  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const newUser = {
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
+    };
+
+    const response = await fetch(`http://localhost:3000/api/auth/signup/user`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
+
+    console.log(response);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -18,7 +38,7 @@ const SingUp = () => {
             </Link>
           </p>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" onSubmit={handleRegister}>
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
