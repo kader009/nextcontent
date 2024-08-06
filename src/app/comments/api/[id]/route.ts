@@ -55,7 +55,6 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  // console.log(params.id);
   const body = await request.json();
   const index = comments.findIndex(
     (commnet) => commnet.id === parseInt(params.id)
@@ -72,4 +71,14 @@ export async function PATCH(
       comments,
     });
   }
+}
+
+export async function DELETE({ params }: { params: { id: string } }) {
+  const DeleteCome = await comments.filter(
+    (com) => com.id !== parseInt(params.id)
+  );
+  return Response.json({
+    message: 'delete comments',
+    DeleteCome,
+  });
 }
