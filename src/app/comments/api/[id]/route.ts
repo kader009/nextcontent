@@ -1,5 +1,9 @@
 import { NextRequest } from 'next/server';
 
+interface Params{
+  id:string;
+}
+
 const comments = [
   {
     id: 1,
@@ -53,7 +57,10 @@ const comments = [
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+//   { params }: { params: { id: string } 
+// }
+
+params :Params
 ) {
   const body = await request.json();
   const index = comments.findIndex(
