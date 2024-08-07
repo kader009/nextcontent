@@ -7,9 +7,11 @@ const connectDB = async () =>{
 
   try {
     const uri = process.env.DATABASE_URL;
+
     if(!uri){
       throw new Error('Please connet your mongodb url')
     }
+    
     const client = new MongoClient(uri as string, {
       serverApi: ServerApiVersion.v1,
       // strict: true,

@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import { FormEvent } from 'react';
 
-const SingUp = () => {
-  const handleRegister = async (event: FormEvent<HTMLFormElement>) => {
+const SingUp = () => { 
+  const handleRegister = async (event: FormEvent<HTMLFormElement>) => { 
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const newUser = {

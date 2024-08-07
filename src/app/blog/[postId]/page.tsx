@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Blog details',
+  description:'blogs for all details'
+};
+
 interface Params {
   postId: number;
   date: string;
