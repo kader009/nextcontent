@@ -1,6 +1,4 @@
-'use client'
 import Link from 'next/link';
-import React, { useEffect } from 'react';
 
 const Blogpage = () => {
   const blogs = [
@@ -31,8 +29,6 @@ const Blogpage = () => {
     content: string;
     date: string;
   }
-
-  useEffect(() =>{},[])
 
   return (
     <section className="flex justify-between m-6">

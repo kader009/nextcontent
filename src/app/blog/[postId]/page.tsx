@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Blog details',
-  description:'blogs for all details'
+  description: 'blogs for all details',
 };
 
 interface Params {
@@ -33,8 +33,6 @@ const blogs = [
 ];
 
 const BlogDetail = ({ params }: { params: Params }) => {
-  console.log(params);
-
   const blog = blogs.find((blog) => blog.post_id == params.postId);
 
   return (
