@@ -5,6 +5,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 
 const handler = NextAuth({
+  secret: process.env.NEXT_AUTH_SECRET,
   session: {
     strategy: 'jwt',
   },
@@ -48,18 +49,8 @@ const handler = NextAuth({
 
     GitHubProvider({
       clientId: process.env.GITHUB_ID as string,
-      clientSecret: process.env.GITHUB_SECRET as string
-    })
-
-    /**
-     *
-     * async authorize(credential){
-     * if(!credential){
-     * return null;
-     * }
-     * return true
-     * }
-     */
+      clientSecret: process.env.GITHUB_SECRET as string,
+    }),
   ],
 });
 
