@@ -1,6 +1,6 @@
 import { Db, MongoClient, ServerApiVersion } from "mongodb";
 
-let db : Db | null = null;
+let db : Db | null = null; 
 
 const connectDB = async () =>{
   if(db) return db;
