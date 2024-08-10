@@ -1,12 +1,17 @@
-import React from 'react';
+import GoogleLogin from "@/components/google/google";
+
 
 const SocialLogin = () => {
   return (
-    <div >
-      <h1 className='text-center text-2xl mt-5 font-bold'>Welcome to social log</h1>
+    <div className='flex justify-center items-center'>
+      <div>
+
+      <h1 className="text-center text-2xl mt-5 font-bold">
+        Welcome to social login..
+      </h1>
       <br />
-      <br />
-      
+      <GoogleLogin/>
+      </div>
     </div>
   );
 };
