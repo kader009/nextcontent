@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata } from 'next'; 
 import { Inter } from 'next/font/google';
 import './globals.css';
 import SessionWrapper from '@/components/sessionwrapper/sessionwrapper';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] }); 
 
 export const metadata: Metadata = {
   title: 'Create Next Auth',
@@ -16,13 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    
     <html lang="en">
       <body className={inter.className}>
-      <SessionWrapper>
-        {children}
-    </SessionWrapper>
-        </body>
+        <SessionWrapper>{children}</SessionWrapper>
+      </body>
     </html>
   );
 }

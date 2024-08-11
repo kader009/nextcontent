@@ -31,6 +31,15 @@ const Home = async () => {
       </div>
       <br />
       <br />
+      <input type="text" list='foods' autoComplete='off' />
+      <datalist id='foods'>
+        <option value='Burger'></option>
+        <option value='Burrito'></option>
+        <option value='Chiken'></option>
+        <option value='Pizza'></option>
+        <option value='Sandwich'></option>
+      </datalist>
+      <br />
       <br />
       <div className="flex justify-center items-center mb-10">
         <Image
